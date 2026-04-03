@@ -1,0 +1,38 @@
+import { X } from "lucide-react";
+
+interface ServiceDetailCardProps {
+  image: string;
+  title: string;
+  description: string;
+  onClose?: () => void;
+}
+
+const ServiceDetailCard = ({ image, title, description, onClose }: ServiceDetailCardProps) => {
+  return (
+    <div className="relative w-full max-w-xl rounded-2xl overflow-hidden shadow-elevated group">
+      {/* Background Image */}
+      <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover" />
+
+      {/* Glossy Overlay */}
+      <div className="relative z-10 min-h-[380px] flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent backdrop-blur-[2px]">
+        {/* Optional Close Button */}
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 transition-all"
+          >
+            <X size={14} />
+          </button>
+        )}
+
+        {/* Glassmorphism Content Panel */}
+        <div className="m-3 p-5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15">
+          <h3 className="font-heading font-bold text-lg text-white mb-2">{title}</h3>
+          <p className="text-white/80 text-sm leading-relaxed">{description}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ServiceDetailCard;
