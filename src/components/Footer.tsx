@@ -53,8 +53,8 @@ const Footer = () => {
               <p>Monday – Saturday: 9 AM – 7 PM</p>
               <p>Sunday: Closed</p>
               <div className="mt-4 opacity-100 font-medium space-y-1">
-                <p>Contact: 9829377055</p>
-                <p>Contact: 9261060009</p>
+                <p>Contact 1: 9829377055</p>
+                <p>Contact 2: 9261060009</p>
               </div>
             </div>
           </div>
