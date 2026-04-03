@@ -42,6 +42,9 @@ const Footer = () => {
                 </span>
                 Open in Maps
               </a>
+              <p className="mt-3 text-sm opacity-70 leading-relaxed">
+                Krishna Market ,shop no. 9,Chandpura road, Rani Sati Rd, Rajasthan 332001
+              </p>
             </div>
           </div>
           <div>
@@ -49,7 +52,10 @@ const Footer = () => {
             <div className="space-y-2 text-sm opacity-70">
               <p>Monday – Saturday: 9 AM – 7 PM</p>
               <p>Sunday: Closed</p>
-              <p className="mt-4 opacity-100 font-medium">Emergency? Call us 24/7</p>
+              <div className="mt-4 opacity-100 font-medium space-y-1">
+                <p>Contact: 9829377055</p>
+                <p>Contact: 9261060009</p>
+              </div>
             </div>
           </div>
         </div>
