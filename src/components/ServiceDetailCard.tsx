@@ -19,9 +19,9 @@ const ServiceDetailCard = ({ image, title, description, onClose }: ServiceDetail
         {onClose && (
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 transition-all"
+            className="absolute top-3 left-3 w-10 h-10 rounded-full bg-white/25 backdrop-blur-md border border-white/40 shadow-lg shadow-black/30 flex items-center justify-center text-white hover:text-white hover:bg-white/35 transition-all"
           >
-            <X size={14} />
+            <X size={18} />
           </button>
         )}
 

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Droplets, Factory, Home, Wrench, ShieldCheck, Sun } from "lucide-react";
 
 import heroWater from "../assets/hero-water.jpg";
@@ -56,6 +57,8 @@ const services = [
 ];
 
 const Services = () => {
+  const [activeService, setActiveService] = useState<(typeof services)[number] | null>(null);
+
   return (
     <section id="services" className="relative py-20 md:py-28 overflow-hidden">
       <div
@@ -77,16 +80,18 @@ const Services = () => {
           {services.map((service) => (
             <div
               key={service.title}
-              className="relative bg-card rounded-xl p-7 shadow-card hover:shadow-elevated transition-shadow group"
+              className="relative bg-card rounded-xl p-7 shadow-card transition-shadow"
+              role="button"
+              tabIndex={0}
+              onClick={() => setActiveService(service)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setActiveService(service);
+                }
+              }}
             >
-              <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/60 backdrop-blur-xl opacity-0 transition-opacity duration-200 group-hover:opacity-100 p-6 pointer-events-none">
-                <ServiceDetailCard
-                  image={service.detailImage}
-                  title={service.title}
-                  description={service.detailDescription}
-                />
-              </div>
-              <div className="w-12 h-12 rounded-lg gradient-fire flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 rounded-lg gradient-fire flex items-center justify-center mb-5">
                 <service.icon className="text-primary-foreground" size={22} />
               </div>
               <h3 className="font-heading font-bold text-lg text-foreground mb-2">{service.title}</h3>
@@ -94,6 +99,21 @@ const Services = () => {
             </div>
           ))}
         </div>
+
+        {activeService && (
+          <div
+            className="fixed inset-0 z-40 flex items-center justify-center bg-black/60 backdrop-blur-xl p-6"
+            role="dialog"
+            aria-modal="true"
+          >
+            <ServiceDetailCard
+              image={activeService.detailImage}
+              title={activeService.title}
+              description={activeService.detailDescription}
+              onClose={() => setActiveService(null)}
+            />
+          </div>
+        )}
       </div>
     </section>
   );
