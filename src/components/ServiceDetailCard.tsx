@@ -106,13 +106,6 @@ const ServiceDetailCard = ({
             <h3 className="font-heading font-bold text-xl text-white tracking-tight">{title}</h3>
             <p className="text-white/80 text-sm leading-relaxed mt-2">{description}</p>
 
-            <button
-              onClick={onLearnMore}
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 hover:text-white transition-colors duration-300 pt-3 group/cta"
-            >
-              Learn more
-              <ArrowRight size={14} className="transition-transform duration-300 group-hover/cta:translate-x-1" />
-            </button>
           </div>
         </div>
       </div>

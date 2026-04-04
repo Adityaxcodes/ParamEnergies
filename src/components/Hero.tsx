@@ -1,16 +1,21 @@
 import heroImage from "@/assets/hero-water.jpg";
+import heroVideo from "@/assets/wateFlow herosection.mp4";
 
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image */}
+      {/* Background video */}
       <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Modern water filtration system"
+        <video
           className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a3e]/90 via-[#2A5BFF]/75 to-[#4B2EFF]/80" />
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={heroImage}
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
       </div>
 
       <div className="container mx-auto px-4 relative z-10 pt-24">
