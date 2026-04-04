@@ -58,9 +58,13 @@ const Contact = () => {
   };
 
   const contactItems = [
-    { icon: Phone, title: "Phone", value: "+91 98XXX XXXXX" },
-    { icon: Mail, title: "Email", value: "info@paramenergy.com" },
-    { icon: MapPin, title: "Address", value: "Your City, India" },
+    { icon: Phone, title: "Phone", value: "9829377055" },
+    { icon: Mail, title: "Email", value: "paramEnergies@gmail.com" },
+    {
+      icon: MapPin,
+      title: "Address",
+      value: "Krishna Market ,shop no. 9,Chandpura road, Rani Sati Rd, Rajasthan 332001",
+    },
   ];
 
   return (
@@ -160,6 +164,9 @@ const Contact = () => {
               <Send size={16} />
               {isSubmitting ? "Sending..." : "Send Message"}
             </button>
+            <p className="text-primary-foreground/70 text-xs leading-relaxed">
+              Add your name, number and email and message as mentioned above. click on send message to send the all your details to the business owner. The business owners will respond you within 2 working days.
+            </p>
           </form>
         </div>
       </div>

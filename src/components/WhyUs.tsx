@@ -27,7 +27,7 @@ const WhyUs = () => {
   return (
     <section
       id="why-us"
-      className="relative overflow-hidden py-24 md:py-36 gradient-surface"
+      className="relative overflow-hidden py-24 md:py-36 gradient-surface hidden md:block"
       style={{
         background:
           "radial-gradient(circle at top left, rgba(255, 122, 24, 0.24), transparent 30%), radial-gradient(circle at bottom right, rgba(42, 91, 255, 0.22), transparent 28%), linear-gradient(135deg, hsl(220 100% 99%), hsl(210 100% 97%))",
