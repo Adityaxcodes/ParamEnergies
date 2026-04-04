@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Droplets, Factory, Home, Wrench, ShieldCheck, Sun } from "lucide-react";
 
 import heroWater from "../assets/hero-water.jpg";
@@ -81,6 +81,19 @@ const services = [
 const Services = () => {
   const [activeService, setActiveService] = useState<(typeof services)[number] | null>(null);
 
+  useEffect(() => {
+    if (!activeService) {
+      return;
+    }
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [activeService]);
+
   return (
     <section id="services" className="relative py-20 md:py-28 gradient-blue overflow-hidden">
       <div className="absolute top-20 left-10 w-72 h-72 bg-[#3EC6FF]/20 rounded-full blur-3xl pointer-events-none" />
@@ -136,15 +149,17 @@ const Services = () => {
 
         {activeService && (
           <div
-            className="fixed inset-0 z-40 flex items-center justify-center bg-black/60 backdrop-blur-xl p-6"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-xl p-6"
             role="dialog"
             aria-modal="true"
+            onClick={() => setActiveService(null)}
           >
             <ServiceDetailCard
               image={activeService.detailImage}
               title={activeService.title}
               description={activeService.detailDescription}
               onClose={() => setActiveService(null)}
+              onLearnMore={() => setActiveService(null)}
             />
           </div>
         )}
