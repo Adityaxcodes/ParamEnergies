@@ -32,8 +32,8 @@ const Hero = () => {
               as="span"
               animation="slideUp"
               by="word"
-              className="text-transparent bg-clip-text"
-              style={{ backgroundImage: "linear-gradient(135deg, #FF3B3B, #FF7A18, #FFA726)" }}
+              segmentClassName="text-transparent bg-clip-text text-animate-gradient"
+              style={{ "--text-animate-gradient": "linear-gradient(135deg, #FF3B3B, #FF7A18, #FFA726)" } as React.CSSProperties}
             >
               Healthy Life
             </TextAnimate>

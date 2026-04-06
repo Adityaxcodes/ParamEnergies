@@ -136,6 +136,10 @@
     will-change: transform, opacity, filter;
   }
 
+  .text-animate-gradient {
+    background-image: var(--text-animate-gradient);
+  }
+
   @keyframes text-animate-fade-in {
     0% {
       opacity: 0;
