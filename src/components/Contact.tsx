@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Send, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -66,15 +67,30 @@ const Contact = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-primary-foreground font-semibold text-sm uppercase tracking-widest border border-white/20">
+          <span
+            className="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-primary-foreground font-semibold text-sm uppercase tracking-widest border border-white/20 animate-fade-in-up-slow"
+            style={{ animationDelay: "120ms" }}
+          >
             Get In Touch
           </span>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl mt-5 text-primary-foreground">
+          <TextAnimate
+            as="h2"
+            animation="slideUp"
+            by="word"
+            className="font-heading font-bold text-3xl md:text-4xl mt-5 text-primary-foreground"
+            style={{ animationDelay: "260ms" }}
+          >
             Contact Us
-          </h2>
-          <p className="text-primary-foreground/70 mt-4 max-w-xl mx-auto text-sm">
+          </TextAnimate>
+          <TextAnimate
+            as="p"
+            animation="slideUp"
+            by="word"
+            className="text-primary-foreground/70 mt-4 max-w-xl mx-auto text-sm"
+            style={{ animationDelay: "420ms" }}
+          >
             Have questions or need a quote? Reach out to us and our team will respond within 24 hours.
-          </p>
+          </TextAnimate>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-10 max-w-5xl mx-auto">
@@ -88,8 +104,22 @@ const Contact = () => {
                   <item.icon className="text-primary-foreground" size={18} />
                 </div>
                 <div>
-                  <h4 className="font-heading font-semibold text-primary-foreground text-sm">{item.title}</h4>
-                  <p className="text-primary-foreground/65 text-sm mt-1">{item.value}</p>
+                  <TextAnimate
+                    as="h4"
+                    animation="slideUp"
+                    by="word"
+                    className="font-heading font-semibold text-primary-foreground text-sm"
+                  >
+                    {item.title}
+                  </TextAnimate>
+                  <TextAnimate
+                    as="p"
+                    animation="slideUp"
+                    by="word"
+                    className="text-primary-foreground/65 text-sm mt-1"
+                  >
+                    {item.value}
+                  </TextAnimate>
                 </div>
               </div>
             ))}
@@ -97,11 +127,23 @@ const Contact = () => {
             <div className="p-5 rounded-2xl bg-white/5 border border-white/15 backdrop-blur-md">
               <div className="flex items-center gap-3 mb-2">
                 <MessageCircle className="text-accent" size={20} />
-                <h4 className="font-heading font-semibold text-primary-foreground text-sm">Quick Response</h4>
+                <TextAnimate
+                  as="h4"
+                  animation="slideUp"
+                  by="word"
+                  className="font-heading font-semibold text-primary-foreground text-sm"
+                >
+                  Quick Response
+                </TextAnimate>
               </div>
-              <p className="text-primary-foreground/60 text-xs leading-relaxed">
+              <TextAnimate
+                as="p"
+                animation="slideUp"
+                by="word"
+                className="text-primary-foreground/60 text-xs leading-relaxed"
+              >
                 We typically respond within 2 hours during business hours. For urgent queries, call us directly.
-              </p>
+              </TextAnimate>
             </div>
           </div>
 
@@ -145,9 +187,14 @@ const Contact = () => {
               <Send size={16} />
               {isSubmitting ? "Opening..." : "Open WhatsApp"}
             </button>
-            <p className="text-primary-foreground/70 text-xs leading-relaxed">
+            <TextAnimate
+              as="p"
+              animation="slideUp"
+              by="word"
+              className="text-primary-foreground/70 text-xs leading-relaxed"
+            >
               Add your name, number and message as mentioned above. Click on open WhatsApp to send all your details to the business owner. The business owners will respond you within 2 working days.
-            </p>
+            </TextAnimate>
           </form>
         </div>
       </div>

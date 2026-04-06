@@ -1,4 +1,5 @@
 import { Droplets, Navigation } from "lucide-react";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 
 const Footer = () => {
   return (
@@ -8,14 +9,23 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Droplets size={24} />
-              <span className="font-heading font-bold text-lg">Param Energy & Filtrations</span>
+              <TextAnimate as="span" animation="slideUp" by="word" className="font-heading font-bold text-lg">
+                Param Energy & Filtrations
+              </TextAnimate>
             </div>
-            <p className="text-sm opacity-70 leading-relaxed">
+            <TextAnimate
+              as="p"
+              animation="slideUp"
+              by="word"
+              className="text-sm opacity-70 leading-relaxed"
+            >
               Your trusted partner for clean water solutions. We deliver quality filtration systems for every need.
-            </p>
+            </TextAnimate>
           </div>
           <div>
-            <h4 className="font-heading font-semibold mb-4">Quick Links</h4>
+            <TextAnimate as="h4" animation="slideUp" by="word" className="font-heading font-semibold mb-4">
+              Quick Links
+            </TextAnimate>
             <div className="space-y-2">
               {["Home", "Services", "About", "Contact"].map((link) => (
                 <a
@@ -29,7 +39,9 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h4 className="font-heading font-semibold mb-4">Location</h4>
+            <TextAnimate as="h4" animation="slideUp" by="word" className="font-heading font-semibold mb-4">
+              Location
+            </TextAnimate>
             <div className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 p-4">
               <a
                 href="https://maps.app.goo.gl/KXCzWrWQqt5Hso1G9"
@@ -42,19 +54,34 @@ const Footer = () => {
                 </span>
                 Open in Maps
               </a>
-              <p className="mt-3 text-sm opacity-70 leading-relaxed">
+              <TextAnimate
+                as="p"
+                animation="slideUp"
+                by="word"
+                className="mt-3 text-sm opacity-70 leading-relaxed"
+              >
                 Krishna Market ,shop no. 9,Chandpura road, Rani Sati Rd, Rajasthan 332001
-              </p>
+              </TextAnimate>
             </div>
           </div>
           <div>
-            <h4 className="font-heading font-semibold mb-4">Business Hours</h4>
+            <TextAnimate as="h4" animation="slideUp" by="word" className="font-heading font-semibold mb-4">
+              Business Hours
+            </TextAnimate>
             <div className="space-y-2 text-sm opacity-70">
-              <p>Monday – Saturday: 9 AM – 7 PM</p>
-              <p>Sunday: Closed</p>
+              <TextAnimate as="p" animation="slideUp" by="word">
+                Monday – Saturday: 9 AM – 7 PM
+              </TextAnimate>
+              <TextAnimate as="p" animation="slideUp" by="word">
+                Sunday: Closed
+              </TextAnimate>
               <div className="mt-4 opacity-100 font-medium space-y-1">
-                <p>Contact 1: 9829377055</p>
-                <p>Contact 2: 9261060009</p>
+                <TextAnimate as="p" animation="slideUp" by="word">
+                  Contact 1: 9829377055
+                </TextAnimate>
+                <TextAnimate as="p" animation="slideUp" by="word">
+                  Contact 2: 9261060009
+                </TextAnimate>
               </div>
             </div>
           </div>

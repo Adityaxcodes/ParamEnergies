@@ -1,5 +1,6 @@
 import heroImage from "@/assets/hero-water.jpg";
-import heroVideo from "@/assets/wateFlow herosection.mp4";
+import heroVideo from "@/assets/hero section vid.mp4";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 
 const Hero = () => {
   return (
@@ -24,14 +25,27 @@ const Hero = () => {
             Trusted Water Filtration Experts
           </span>
           <h1 className="font-heading font-extrabold text-4xl md:text-6xl leading-tight mb-6 text-white">
-            Pure Water,{" "}
-            <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, #FF3B3B, #FF7A18, #FFA726)' }}>
+            <TextAnimate as="span" animation="slideUp" by="word">
+              Pure Water,
+            </TextAnimate>{" "}
+            <TextAnimate
+              as="span"
+              animation="slideUp"
+              by="word"
+              className="text-transparent bg-clip-text"
+              style={{ backgroundImage: "linear-gradient(135deg, #FF3B3B, #FF7A18, #FFA726)" }}
+            >
               Healthy Life
-            </span>
+            </TextAnimate>
           </h1>
-          <p className="text-lg md:text-xl mb-8 text-white/75 leading-relaxed max-w-xl">
+          <TextAnimate
+            as="p"
+            animation="slideUp"
+            by="word"
+            className="text-lg md:text-xl mb-8 text-white/75 leading-relaxed max-w-xl"
+          >
             Param Energy & Filtrations delivers advanced water purification solutions for homes, businesses, and industries. Clean water you can trust.
-          </p>
+          </TextAnimate>
           <div className="flex flex-wrap gap-4">
             <a
               href="#contact"

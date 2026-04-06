@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Droplets, Factory, Home, Wrench, ShieldCheck, Sun, ArrowRight } from "lucide-react";
 
 import heroWater from "../assets/hero-water.jpg";
+import servicesBg from "../assets/services bg.jpg";
 import dmPlant from "../assets/services/DM plant.png";
 import domesticRo from "../assets/services/Domestic RO.png";
 import industrialRo from "../assets/services/Industrial RO.png";
@@ -10,6 +11,7 @@ import sewagePlant from "../assets/services/Sewage.png";
 import solarProject from "../assets/services/solar.jpeg";
 import waterSoftner from "../assets/services/waterSoftner.png";
 import ServiceDetailCard from "./ServiceDetailCard";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 
 const services = [
   {
@@ -103,21 +105,40 @@ const Services = () => {
   }, [activeService]);
 
   return (
-    <section id="services" className="relative py-20 md:py-28 gradient-blue overflow-hidden">
+    <section id="services" className="relative py-20 md:py-28 overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center blur-sm scale-105"
+        style={{ backgroundImage: `url(${servicesBg})` }}
+      />
       <div className="absolute top-20 left-10 w-72 h-72 bg-[hsl(var(--primary))]/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-80 h-80 bg-[hsl(240,100%,59%)]/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 mb-4">
+          <span
+            className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 mb-4 animate-fade-in-up-slow"
+            style={{ animationDelay: "120ms" }}
+          >
             What We Offer
           </span>
-          <h2 className="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-white mt-3">
+          <TextAnimate
+            as="h2"
+            animation="slideUp"
+            by="word"
+            className="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-white mt-3"
+            style={{ animationDelay: "260ms" }}
+          >
             Our Services
-          </h2>
-          <p className="text-white/70 mt-4 max-w-xl mx-auto text-base leading-relaxed">
+          </TextAnimate>
+          <TextAnimate
+            as="p"
+            animation="slideUp"
+            by="word"
+            className="text-white/70 mt-4 max-w-xl mx-auto text-base leading-relaxed"
+            style={{ animationDelay: "420ms" }}
+          >
             From residential purifiers to industrial water treatment plants, we provide end-to-end water filtration solutions.
-          </p>
+          </TextAnimate>
         </div>
 
         <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-hide">
@@ -145,12 +166,22 @@ const Services = () => {
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <h3 className="font-heading font-extrabold text-lg text-white tracking-tight mb-1.5">
+                  <TextAnimate
+                    as="h3"
+                    animation="slideUp"
+                    by="word"
+                    className="font-heading font-extrabold text-lg text-white tracking-tight mb-1.5"
+                  >
                     {service.title}
-                  </h3>
-                  <p className="text-white/70 text-sm leading-relaxed line-clamp-2 mb-3">
+                  </TextAnimate>
+                  <TextAnimate
+                    as="p"
+                    animation="slideUp"
+                    by="word"
+                    className="text-white/70 text-sm leading-relaxed line-clamp-2 mb-3"
+                  >
                     {service.description}
-                  </p>
+                  </TextAnimate>
                   <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-foreground transition-all duration-300 group-hover:gap-2.5">
                     Learn More
                     <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />

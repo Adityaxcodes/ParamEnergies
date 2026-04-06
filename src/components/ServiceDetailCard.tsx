@@ -1,5 +1,6 @@
 import { X, ArrowRight } from "lucide-react";
 import { ReactNode } from "react";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 
 type NeonColor = "blue" | "purple" | "orange" | "cyan" | "pink";
 
@@ -103,8 +104,22 @@ const ServiceDetailCard = ({
 
         <div className="mt-auto">
           <div className="rounded-2xl bg-white/10 backdrop-blur-xl border border-white/15 p-5 md:p-6 shadow-[0_10px_40px_-20px_rgba(255,255,255,0.25)]">
-            <h3 className="font-heading font-bold text-xl text-white tracking-tight">{title}</h3>
-            <p className="text-white/80 text-sm leading-relaxed mt-2">{description}</p>
+            <TextAnimate
+              as="h3"
+              animation="slideUp"
+              by="word"
+              className="font-heading font-bold text-xl text-white tracking-tight"
+            >
+              {title}
+            </TextAnimate>
+            <TextAnimate
+              as="p"
+              animation="slideUp"
+              by="word"
+              className="text-white/80 text-sm leading-relaxed mt-2"
+            >
+              {description}
+            </TextAnimate>
 
           </div>
         </div>
