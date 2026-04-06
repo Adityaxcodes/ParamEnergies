@@ -7,7 +7,6 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
     message: "",
   });
@@ -15,11 +14,11 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const endpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT as string | undefined;
-    if (!endpoint) {
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER as string | undefined;
+    if (!whatsappNumber) {
       toast({
-        title: "Email service not configured",
-        description: "Set VITE_CONTACT_FORM_ENDPOINT in your .env file to receive Contact Us emails.",
+        title: "WhatsApp number not configured",
+        description: "Set VITE_WHATSAPP_NUMBER in your .env file to enable WhatsApp messaging.",
         variant: "destructive",
       });
       return;
@@ -28,28 +27,19 @@ const Contact = () => {
     try {
       setIsSubmitting(true);
 
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Submission failed with status ${response.status}`);
-      }
+      const text = `Name: ${formData.name}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
 
       toast({
         title: "Message Sent!",
-        description: "Thank you for reaching out. We'll get back to you shortly.",
+        description: "WhatsApp has been opened with your message. Please tap send to complete.",
       });
-      setFormData({ name: "", email: "", phone: "", message: "" });
+      setFormData({ name: "", phone: "", message: "" });
     } catch {
       toast({
         title: "Message not sent",
-        description: "We could not send your message right now. Please try again in a moment.",
+        description: "We could not open WhatsApp right now. Please try again in a moment.",
         variant: "destructive",
       });
     } finally {
@@ -129,15 +119,6 @@ const Contact = () => {
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-primary-foreground placeholder:text-primary-foreground/40 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF7A18]/40 focus:border-white/40 backdrop-blur-sm transition-all duration-200"
               />
-              <input
-                type="email"
-                placeholder="Email Address"
-                required
-                maxLength={255}
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-primary-foreground placeholder:text-primary-foreground/40 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF7A18]/40 focus:border-white/40 backdrop-blur-sm transition-all duration-200"
-              />
             </div>
             <input
               type="tel"
@@ -162,10 +143,10 @@ const Contact = () => {
               className="gradient-fire text-primary-foreground px-8 py-3.5 rounded-xl font-semibold text-sm hover:brightness-110 transition-all duration-300 flex items-center gap-2 shadow-lg shadow-[#FF3B3B]/25 hover:shadow-[#FF3B3B]/40 hover:-translate-y-0.5"
             >
               <Send size={16} />
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? "Opening..." : "Open WhatsApp"}
             </button>
             <p className="text-primary-foreground/70 text-xs leading-relaxed">
-              Add your name, number and email and message as mentioned above. click on send message to send the all your details to the business owner. The business owners will respond you within 2 working days.
+              Add your name, number and message as mentioned above. Click on open WhatsApp to send all your details to the business owner. The business owners will respond you within 2 working days.
             </p>
           </form>
         </div>
