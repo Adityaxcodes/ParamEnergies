@@ -72,9 +72,6 @@ const Footer = () => {
               <TextAnimate as="p" animation="slideUp" by="word">
                 Monday – Saturday: 9 AM – 7 PM
               </TextAnimate>
-              <TextAnimate as="p" animation="slideUp" by="word">
-                Sunday: Closed
-              </TextAnimate>
               <div className="mt-4 opacity-100 font-medium space-y-1">
                 <TextAnimate as="p" animation="slideUp" by="word">
                   Contact 1: 9829377055

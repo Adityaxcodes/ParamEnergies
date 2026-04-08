@@ -15,8 +15,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['Plus Jakarta Sans', 'sans-serif'],
+        heading: ['Garamond', 'EB Garamond', 'serif'],
         body: ['Inter', 'sans-serif'],
+        ui: ['Poppins', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Montserrat:wght@200;300&family=Poppins:wght@500;600&family=Roboto:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,16 +15,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 40% 13%;
 
-    --primary: 220 100% 58%;
+    --primary: 206 74% 15%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 195 80% 92%;
-    --secondary-foreground: 220 80% 30%;
+    --secondary: 188 64% 34%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 220 15% 94%;
     --muted-foreground: 220 10% 45%;
 
-    --accent: 15 100% 55%;
+    --accent: 186 64% 46%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -45,15 +45,16 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    --gradient-blue: linear-gradient(135deg, #3EC6FF 0%, #2A5BFF 50%, #4B2EFF 100%);
-    --gradient-fire: linear-gradient(135deg, #FF3B3B 0%, #FF7A18 50%, #FFA726 100%);
-    --gradient-deep: linear-gradient(180deg, #1a1a3e 0%, #2A5BFF 100%);
+    --gradient-blue: linear-gradient(135deg, #0A2540 0%, #1F7A8C 50%, #2BB3C0 100%);
+    --gradient-fire: linear-gradient(135deg, #FF7A18 0%, #FFB347 100%);
+    --gradient-deep: linear-gradient(180deg, #0A2540 0%, #1F7A8C 100%);
     --gradient-surface: linear-gradient(135deg, hsl(220 30% 97%), hsl(210 60% 95%));
     --shadow-card: 0 4px 24px -4px hsl(220 100% 58% / 0.1);
     --shadow-elevated: 0 12px 40px -8px hsl(220 100% 58% / 0.2);
 
-    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-heading: 'Garamond', 'EB Garamond', serif;
     --font-body: 'Inter', sans-serif;
+    --font-ui: 'Poppins', sans-serif;
   }
 
   .dark {
@@ -96,23 +97,46 @@
     @apply bg-background text-foreground;
     font-family: var(--font-body);
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.45;
+    letter-spacing: 0.004em;
   }
+
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    letter-spacing: 0.002em;
   }
 
   h1, h2, h3 {
     font-weight: 700;
+    line-height: 1.1;
   }
 
   h1 {
-    letter-spacing: -0.02em;
+    letter-spacing: -0.005em;
+  }
+
+  button,
+  nav,
+  input,
+  select,
+  textarea,
+  label {
+    font-family: var(--font-ui);
+    letter-spacing: 0.01em;
   }
 }
 
 @layer utilities {
+  .font-roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .font-futura-thin {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+  }
+
   .gradient-blue {
     background: var(--gradient-blue);
   }
@@ -252,5 +276,37 @@
       opacity: 1;
       transform: scale(1);
     }
+  }
+
+  .checkbox-container {
+    display: block;
+    height: 0.9em;
+    width: 0.9em;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .checkbox-container input {
+    position: absolute;
+    transform: scale(0);
+  }
+
+  .checkbox-container input:checked ~ .checkbox-checkmark {
+    transform: rotate(45deg);
+    height: 1.2em;
+    width: 0.42em;
+    border-color: #32cd32;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-radius: 0;
+  }
+
+  .checkbox-container .checkbox-checkmark {
+    display: block;
+    width: inherit;
+    height: inherit;
+    border: 2px solid #32cd32;
+    border-radius: 4px;
+    transition: all 0.3s;
   }
 }

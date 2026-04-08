@@ -30,11 +30,11 @@ const Contact = () => {
 
       const text = `Name: ${formData.name}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
       const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
-      window.open(url, "_blank", "noopener,noreferrer");
+      window.location.href = url;
 
       toast({
         title: "Message Sent!",
-        description: "WhatsApp has been opened with your message. Please tap send to complete.",
+        description: "WhatsApp is ready with your message. Please tap send to complete.",
       });
       setFormData({ name: "", phone: "", message: "" });
     } catch {
@@ -185,7 +185,7 @@ const Contact = () => {
               className="gradient-fire text-primary-foreground px-8 py-3.5 rounded-xl font-semibold text-sm hover:brightness-110 transition-all duration-300 flex items-center gap-2 shadow-lg shadow-[#FF3B3B]/25 hover:shadow-[#FF3B3B]/40 hover:-translate-y-0.5"
             >
               <Send size={16} />
-              {isSubmitting ? "Opening..." : "Open WhatsApp"}
+              {isSubmitting ? "Sending..." : "Send via WhatsApp"}
             </button>
             <TextAnimate
               as="p"
@@ -193,7 +193,7 @@ const Contact = () => {
               by="word"
               className="text-primary-foreground/70 text-xs leading-relaxed"
             >
-              Add your name, number and message as mentioned above. Click on open WhatsApp to send all your details to the business owner. The business owners will respond you within 2 working days.
+              Add your name, number and message as mentioned above. Click on send via WhatsApp to share your details with the business owner. The business owners will respond you within 2 working days.
             </TextAnimate>
           </form>
         </div>

@@ -1,4 +1,3 @@
-import { CheckCircle2 } from "lucide-react";
 import aboutPoster from "@/assets/hero-water.jpg";
 import aboutVideo from "@/assets/About us bg.mp4";
 import { TextAnimate } from "@/registry/magicui/text-animate";
@@ -63,20 +62,20 @@ const About = () => {
                 <div className="relative">
                   <div className="absolute inset-0 gradient-fire rounded-full blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
                   <div className="text-4xl font-heading font-extrabold text-white relative">
-                    {stat.value}
+                    {stat.value}  
                   </div>
                 </div>
-                <div className="text-sm mt-2 text-white/60">{stat.label}</div>
+                <div className="text-sm mt-2 text-white/60 font-body">{stat.label}</div>
               </div>
             ))}
           </div>
 
-          <div className="p-7 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+          <div className="p-7 rounded-2xl bg-black/45 backdrop-blur-md border border-white/15 font-futura-thin">
             <TextAnimate
               as="p"
               animation="slideUp"
               by="word"
-              className="text-white/85 leading-relaxed"
+              className="text-white leading-snug font-body"
               style={{ animationDelay: "420ms" }}
             >
               Param Energy & Filtrations is a trusted name in water purification and energy solutions. We specialize in designing, installing, and maintaining water filtration systems that meet the highest quality standards.
@@ -85,21 +84,26 @@ const About = () => {
               as="p"
               animation="slideUp"
               by="word"
-              className="text-white/85 mt-4 leading-relaxed"
+              className="text-white mt-4 leading-snug font-body"
               style={{ animationDelay: "560ms" }}
             >
               Our mission is simple — to ensure every home, business, and industry has access to clean, safe, and affordable water. We combine cutting-edge technology with reliable service to deliver results you can count on.
             </TextAnimate>
 
             <div className="mt-8 space-y-3">
-              {highlights.map((item) => (
-                <div key={item} className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full gradient-fire flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="text-white" size={14} />
+              {highlights.map((item, index) => {
+                const inputId = `about-highlight-${index}`;
+
+                return (
+                  <div key={item} className="flex items-center gap-3">
+                    <label className="checkbox-container shrink-0" htmlFor={inputId} aria-hidden="true">
+                      <input id={inputId} type="checkbox" checked readOnly />
+                      <span className="checkbox-checkmark" />
+                    </label>
+                    <span className="text-white font-medium text-sm font-body leading-snug">{item}</span>
                   </div>
-                  <span className="text-white/90 font-medium text-sm">{item}</span>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

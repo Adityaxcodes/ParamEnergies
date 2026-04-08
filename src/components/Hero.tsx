@@ -17,14 +17,12 @@ const Hero = () => {
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
+        <div className="absolute inset-0 bg-[rgba(10,37,64,0.55)]" aria-hidden="true" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10 pt-24">
         <div className="max-w-2xl animate-fade-in-up">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-white text-sm font-semibold mb-6 backdrop-blur-sm border border-white/20">
-            Trusted Water Filtration Experts
-          </span>
-          <h1 className="font-heading font-extrabold text-4xl md:text-6xl leading-tight mb-6 text-white">
+          <h1 className="font-heading font-extrabold text-4xl md:text-6xl leading-tight mb-6 text-[#F5F7FA]">
             <TextAnimate as="span" animation="slideUp" by="word">
               Pure Water,
             </TextAnimate>{" "}
@@ -33,7 +31,7 @@ const Hero = () => {
               animation="slideUp"
               by="word"
               segmentClassName="text-transparent bg-clip-text text-animate-gradient"
-              style={{ "--text-animate-gradient": "linear-gradient(135deg, #FF3B3B, #FF7A18, #FFA726)" } as React.CSSProperties}
+              style={{ "--text-animate-gradient": "linear-gradient(135deg, #FF7A18, #FFB347)" } as React.CSSProperties}
             >
               Healthy Life
             </TextAnimate>
@@ -42,7 +40,7 @@ const Hero = () => {
             as="p"
             animation="slideUp"
             by="word"
-            className="text-lg md:text-xl mb-8 text-white/75 leading-relaxed max-w-xl"
+            className="text-base md:text-lg mb-8 text-[#D1D9E6] leading-relaxed max-w-xl"
           >
             Param Energy & Filtrations delivers advanced water purification solutions for homes, businesses, and industries. Clean water you can trust.
           </TextAnimate>

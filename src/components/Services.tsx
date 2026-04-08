@@ -145,7 +145,9 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="group relative flex-shrink-0 w-[75vw] sm:w-[60vw] md:w-auto snap-center rounded-2xl overflow-hidden cursor-pointer transition-transform duration-300 ease-out active:scale-[0.97] hover:scale-[1.03] animate-fade-in-up"
+              className={`group relative flex-shrink-0 w-[75vw] sm:w-[60vw] md:w-auto snap-center rounded-2xl overflow-hidden cursor-pointer transition-transform duration-300 ease-out active:scale-[0.97] hover:scale-[1.03] animate-fade-in-up ${
+                service.title === "Domestic RO" ? "order-first md:order-none" : ""
+              }`}
               style={{ animationDelay: `${index * 100}ms` }}
               onClick={() => setActiveService(service)}
             >
