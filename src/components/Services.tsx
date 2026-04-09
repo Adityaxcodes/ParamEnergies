@@ -15,15 +15,6 @@ import { TextAnimate } from "@/registry/magicui/text-animate";
 
 const services = [
   {
-    icon: Droplets,
-    title: "DM plants",
-    description:
-      "High-purity demineralization systems designed to remove dissolved salts and minerals from water for critical industrial applications. Ideal for boiler feed, pharmaceuticals, and manufacturing processes, these plants ensure consistent water quality, improved efficiency, and long-term equipment protection with reliable performance and low operational maintenance requirements.",
-    image: dmPlant,
-    detailDescription:
-      "High-purity demineralization systems designed to remove dissolved salts and minerals from water for critical industrial applications. Ideal for boiler feed, pharmaceuticals, and manufacturing processes, these plants ensure consistent water quality, improved efficiency, and long-term equipment protection with reliable performance and low operational maintenance requirements.",
-  },
-  {
     icon: Home,
     title: "Domestic RO",
     description:
@@ -31,6 +22,15 @@ const services = [
     image: domesticRo,
     detailDescription:
       "Compact and efficient reverse osmosis systems built for homes, apartments, and small offices. These units remove impurities, contaminants, and harmful substances to deliver safe and clean drinking water. Designed for convenience, they offer easy installation, low maintenance, and reliable performance for everyday household water purification needs.",
+  },
+  {
+    icon: Droplets,
+    title: "DM plants",
+    description:
+      "High-purity demineralization systems designed to remove dissolved salts and minerals from water for critical industrial applications. Ideal for boiler feed, pharmaceuticals, and manufacturing processes, these plants ensure consistent water quality, improved efficiency, and long-term equipment protection with reliable performance and low operational maintenance requirements.",
+    image: dmPlant,
+    detailDescription:
+      "High-purity demineralization systems designed to remove dissolved salts and minerals from water for critical industrial applications. Ideal for boiler feed, pharmaceuticals, and manufacturing processes, these plants ensure consistent water quality, improved efficiency, and long-term equipment protection with reliable performance and low operational maintenance requirements.",
   },
   {
     icon: Factory,

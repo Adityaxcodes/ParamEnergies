@@ -1,81 +1,84 @@
-import { Phone, Mail, MapPin, Menu, X } from "lucide-react";
+import {
+  Navbar,
+  NavBody,
+  NavItems,
+  MobileNav,
+  NavbarLogo,
+  NavbarButton,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+} from "@/components/ui/resizable-navbar";
 import { useState } from "react";
-import logo from "@/assets/logo.jpeg";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { label: "Home", href: "#home" },
-    { label: "Services", href: "#services" },
-    { label: "About", href: "#about" },
-    { label: "Why Us", href: "#why-us" },
-    { label: "Contact", href: "#contact" },
+const SiteNavbar = () => {
+  const navItems = [
+    { name: "Home", link: "#home" },
+    { name: "Services", link: "#services" },
+    { name: "About", link: "#about" },
+    { name: "Why Us", link: "#why-us" },
+    { name: "Contact", link: "#contact" },
   ];
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2">
-          <img src={logo} alt="Param Energy & Filtrations Logo" className="h-10 w-auto object-contain rounded-md" />
-          <div>
-            <span className="font-heading font-bold text-foreground text-lg leading-tight block">Param Energy</span>
-            <span className="text-xs text-muted-foreground leading-tight">& Filtrations</span>
-          </div>
-        </a>
-
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            className="gradient-fire text-primary-foreground px-5 py-2 rounded-lg text-sm font-semibold hover:brightness-110 transition-all"
-          >
+    <Navbar>
+      <NavBody>
+        <NavbarLogo />
+        <NavItems items={navItems} />
+        <div className="flex items-center gap-3">
+          <NavbarButton variant="primary" href="#contact">
             Get a Quote
-          </a>
+          </NavbarButton>
         </div>
+      </NavBody>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setIsOpen(!isOpen)}
+      <MobileNav>
+        <MobileNavHeader>
+          <NavbarLogo />
+          <MobileNavToggle
+            isOpen={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          />
+        </MobileNavHeader>
+
+        <MobileNavMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-card border-b border-border px-4 pb-4">
-          {navLinks.map((link) => (
+          {navItems.map((item, idx) => (
             <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              key={`mobile-link-${idx}`}
+              href={item.link}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="relative text-neutral-600 dark:text-neutral-300"
             >
-              {link.label}
+              <span className="block">{item.name}</span>
             </a>
           ))}
-          <a
-            href="#contact"
-            onClick={() => setIsOpen(false)}
-            className="block mt-2 gradient-fire text-primary-foreground px-5 py-2 rounded-lg text-sm font-semibold text-center"
-          >
-            Get a Quote
-          </a>
-        </div>
-      )}
-    </nav>
+          <div className="flex w-full flex-col gap-3">
+            <NavbarButton
+              onClick={() => setIsMobileMenuOpen(false)}
+              variant="secondary"
+              href="#services"
+              className="w-full"
+            >
+              Services
+            </NavbarButton>
+            <NavbarButton
+              onClick={() => setIsMobileMenuOpen(false)}
+              variant="primary"
+              href="#contact"
+              className="w-full"
+            >
+              Get a Quote
+            </NavbarButton>
+          </div>
+        </MobileNavMenu>
+      </MobileNav>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default SiteNavbar;

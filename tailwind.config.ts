@@ -15,9 +15,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['Garamond', 'EB Garamond', 'serif'],
+        heading: ['Poppins', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
-        ui: ['Poppins', 'sans-serif'],
+        ui: ['Montserrat', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
