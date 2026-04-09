@@ -25,7 +25,12 @@ const Services = () => {
   }, [activeService]);
 
   return (
-    <section id="services" className="relative py-20 md:py-28 overflow-hidden">
+    <section
+      id="services"
+      className={`relative py-20 md:py-28 overflow-hidden ${
+        activeService ? "z-50" : "z-0"
+      }`}
+    >
       <div
         className="absolute inset-0 bg-cover bg-center blur-sm scale-105"
         style={{ backgroundImage: `url(${servicesBg})` }}

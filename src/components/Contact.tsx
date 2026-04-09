@@ -28,13 +28,13 @@ const Contact = () => {
     try {
       setIsSubmitting(true);
 
-      const text = `Hello Param Energy Team,%0A%0A` +
-        `I came across your services and I’m interested in learning more.%0A%0A` +
-        `— Client Details —%0A` +
-        `👤 Name: ${formData.name}%0A` +
-        `📞 Phone: ${formData.phone}%0A` +
-        `📝 Requirement: ${formData.message}%0A%0A` +
-        `Please get back to me at your convenience.%0A%0A` +
+      const text = `Hello Param Energy Team,\n\n` +
+        `I came across your services and I’m interested in learning more.\n\n` +
+        `— Client Details —\n` +
+        `👤 Name: ${formData.name}\n` +
+        `📞 Phone: ${formData.phone}\n` +
+        `📝 Requirement: ${formData.message}\n\n` +
+        `Please get back to me at your convenience.\n\n` +
         `Thank you.`;
       const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
       window.location.href = url;
