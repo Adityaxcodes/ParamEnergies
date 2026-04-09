@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="flex items-center gap-2 mb-4">
               <Droplets size={24} />
               <TextAnimate as="span" animation="slideUp" by="word" className="font-heading font-bold text-lg">
-                Param Energy & Filtrations
+                Param Energy & Filters
               </TextAnimate>
             </div>
             <TextAnimate
@@ -84,7 +84,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-primary-foreground/20 mt-10 pt-6 text-center text-sm opacity-60">
-          © {new Date().getFullYear()} Param Energy & Filtrations. All rights reserved.
+          © {new Date().getFullYear()} Param Energy & Filters. All rights reserved.
         </div>
       </div>
     </footer>

@@ -50,7 +50,7 @@ const Hero = () => {
             by="word"
             className="font-heading text-[0.7rem] md:text-[0.7rem] mb-8 text-[#D1D9E6] leading-relaxed max-w-xl"
           >
-            Param Energy & Filtrations delivers advanced water purification solutions for homes, businesses, and industries. Clean water you can trust.
+            Param Energy & Filters delivers advanced water purification solutions for homes, businesses, and industries. Clean water you can trust.
           </TextAnimate>
           <div className="flex flex-wrap gap-4">
             <a href="#contact" className="hero-btn">

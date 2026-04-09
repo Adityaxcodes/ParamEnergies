@@ -87,7 +87,7 @@ const About = () => {
               className="text-white leading-snug font-body"
               style={{ animationDelay: "420ms" }}
             >
-              Param Energy & Filtrations is a trusted name in water purification and energy solutions. We specialize in designing, installing, and maintaining water filtration systems that meet the highest quality standards.
+              Param Energy & Filters is a trusted name in water purification and energy solutions. We specialize in designing, installing, and maintaining water filtration systems that meet the highest quality standards.
             </TextAnimate>
             <TextAnimate
               as="p"

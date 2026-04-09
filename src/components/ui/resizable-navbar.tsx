@@ -240,13 +240,13 @@ export const NavbarLogo = () => {
     >
       <img
         src={logo}
-        alt="Param Energy & Filtrations Logo"
+        alt="Param Energy & Filters Logo"
         className="h-8 w-auto rounded-md object-contain"
       />
       <span className="font-heading text-sm font-semibold leading-tight text-white group-data-[visible=true]:text-zinc-900">
         Param Energy
         <span className="block text-[0.7rem] font-normal text-white/70 group-data-[visible=true]:text-zinc-600">
-          &amp; Filtrations
+          &amp; Filters
         </span>
       </span>
     </a>
