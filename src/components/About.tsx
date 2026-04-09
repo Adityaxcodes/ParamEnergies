@@ -62,13 +62,13 @@ const About = () => {
               >
                 <div className="relative">
                   <div className="absolute inset-0 gradient-fire rounded-full blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-                  <div className="text-5xl md:text-6xl font-heading font-extrabold text-white relative">
+                  <div className="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold text-white relative">
                     <NumberTicker
                       value={stat.value}
-                      className="text-5xl md:text-6xl font-heading font-extrabold text-white tracking-tight"
+                      className="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold text-white tracking-tight"
                     />
                     {stat.suffix && (
-                      <span className="text-5xl md:text-6xl font-heading font-extrabold text-white tracking-tight">
+                      <span className="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold text-white tracking-tight">
                         {stat.suffix}
                       </span>
                     )}
