@@ -68,7 +68,7 @@ const ServiceDetailCard = ({
 
   return (
     <div
-      className={`group relative w-full max-w-4xl h-[70vh] rounded-3xl overflow-hidden border ${theme.border} ${theme.glow} ${hoverGlows[neonColor]} bg-gradient-to-b from-[hsl(220,30%,16%)] to-[hsl(220,30%,8%)] hover:scale-[1.01] transition-all duration-300 ease-out`}
+      className={`group relative w-full max-w-4xl h-[80vh] max-h-[85vh] md:h-[70vh] rounded-3xl overflow-hidden border ${theme.border} ${theme.glow} ${hoverGlows[neonColor]} bg-gradient-to-b from-[hsl(220,30%,16%)] to-[hsl(220,30%,8%)] hover:scale-[1.01] transition-all duration-300 ease-out`}
       onClick={(event) => event.stopPropagation()}
     >
       <div className="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iMSIvPjwvc3ZnPg==')] pointer-events-none z-10" />
@@ -85,7 +85,7 @@ const ServiceDetailCard = ({
         className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-70 transition-opacity duration-300"
       />
 
-      <div className="relative z-20 h-full flex flex-col p-8 md:p-10">
+      <div className="relative z-20 h-full min-h-0 flex flex-col p-6 md:p-10 overflow-y-auto">
         <div className="flex items-start justify-between mb-auto">
           {icon && (
             <div className={`text-white/70 transition-all duration-300 ${theme.iconGlow}`}>
@@ -112,14 +112,17 @@ const ServiceDetailCard = ({
             >
               {title}
             </TextAnimate>
-            <TextAnimate
-              as="p"
-              animation="slideUp"
-              by="word"
-              className="text-white/80 text-sm leading-relaxed mt-2"
-            >
+            <p className="text-white/80 text-sm leading-relaxed mt-2">
               {description}
-            </TextAnimate>
+            </p>
+            {onLearnMore && (
+              <button
+                onClick={onLearnMore}
+                className="boton-elegante boton-elegante--sm mt-4"
+              >
+                Explore
+              </button>
+            )}
 
           </div>
         </div>

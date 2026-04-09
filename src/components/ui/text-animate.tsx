@@ -87,7 +87,7 @@ const animationNames: Record<AnimationVariant, string> = {
 const TextAnimateBase = ({
   children,
   delay = 0,
-  duration = 0.3,
+  duration = 0.2,
   className,
   segmentClassName,
   as: Component = "p",

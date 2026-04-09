@@ -1,6 +1,7 @@
 import aboutPoster from "@/assets/hero-water.jpg";
 import aboutVideo from "@/assets/About us bg.mp4";
 import { TextAnimate } from "@/registry/magicui/text-animate";
+import { NumberTicker } from "@/registry/magicui/number-ticker";
 
 const highlights = [
   "Over 25+ years of industry experience",
@@ -10,10 +11,10 @@ const highlights = [
 ];
 
 const stats = [
-  { value: "500+", label: "Happy Clients" },
-  { value: "25+", label: "Years Experience" },
-  { value: "1000+", label: "Systems Installed" },
-  { value: "24/7", label: "Support Available" },
+  { value: 1000, suffix: "+", label: "Happy Customers" },
+  { value: 25, suffix: "+", label: "Years Experience" },
+  { value: 1000, suffix: "+", label: "Systems Installed" },
+  { value: 24, suffix: "/7", label: "Support Available" },
 ];
 
 const About = () => {
@@ -61,8 +62,16 @@ const About = () => {
               >
                 <div className="relative">
                   <div className="absolute inset-0 gradient-fire rounded-full blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-                  <div className="text-4xl font-heading font-extrabold text-white relative">
-                    {stat.value}  
+                  <div className="text-5xl md:text-6xl font-heading font-extrabold text-white relative">
+                    <NumberTicker
+                      value={stat.value}
+                      className="text-5xl md:text-6xl font-heading font-extrabold text-white tracking-tight"
+                    />
+                    {stat.suffix && (
+                      <span className="text-5xl md:text-6xl font-heading font-extrabold text-white tracking-tight">
+                        {stat.suffix}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="text-sm mt-2 text-white/60 font-body">{stat.label}</div>
