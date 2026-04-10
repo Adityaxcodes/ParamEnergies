@@ -14,6 +14,15 @@ import domesticImg3 from "@/assets/domestic RO/img3.jpeg";
 import domesticImg4 from "@/assets/domestic RO/img4.jpeg";
 import domesticImg5 from "@/assets/domestic RO/img5.jpeg";
 import domesticImg6 from "@/assets/domestic RO/img6.jpeg";
+import packagedImg1 from "@/assets/packaged water/pw1.jpeg";
+import packagedImg2 from "@/assets/packaged water/pw2.jpeg";
+import packagedImg3 from "@/assets/packaged water/pw3.jpeg";
+import packagedImg4 from "@/assets/packaged water/pw4.jpeg";
+import packagedImg5 from "@/assets/packaged water/pw5.jpeg";
+import packagedImg6 from "@/assets/packaged water/pw6.jpeg";
+import softnerImg1 from "@/assets/water softenning/ws1.jpeg";
+import softnerImg2 from "@/assets/water softenning/ws2.jpeg";
+import softnerImg3 from "@/assets/water softenning/ws3.jpeg";
 
 
 const industrialRoSections = [
@@ -239,6 +248,8 @@ const ServiceDetail = () => {
 
   const service = useMemo(() => services.find((item) => item.slug === slug), [slug]);
   const isIndustrialRo = service?.slug === "industrial-ro";
+  const isPackagedWater = service?.slug === "packaged-water";
+  const isWaterSoftner = service?.slug === "water-softner";
   const detailSections = useMemo(() => {
     if (service?.slug === "packaged-water") {
       return packagedWaterSections;
@@ -267,8 +278,27 @@ const ServiceDetail = () => {
       ];
     }
 
+    if (isPackagedWater) {
+      return [
+        packagedImg1,
+        packagedImg2,
+        packagedImg3,
+        packagedImg4,
+        packagedImg5,
+        packagedImg6,
+      ];
+    }
+
+    if (isWaterSoftner) {
+      return [
+        softnerImg1,
+        softnerImg2,
+        softnerImg3,
+      ];
+    }
+
     return [service?.image, service?.image, service?.image, service?.image].filter(Boolean);
-  }, [isIndustrialRo, service?.image]);
+  }, [isIndustrialRo, isPackagedWater, isWaterSoftner, service?.image]);
 
   if (!service || !allowedSlugs.has(service.slug)) {
     return (
@@ -341,10 +371,6 @@ const ServiceDetail = () => {
         </div>
 
         <div className="mt-6 rounded-3xl border border-white/20 bg-white/10 p-6 shadow-xl backdrop-blur-xl md:p-10">
-          <div className="mb-6 flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200/80">
-            <ArrowRight size={14} />
-            Info bento grid
-          </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {detailSections.map((section) => (
               <div
@@ -380,12 +406,8 @@ const ServiceDetail = () => {
           </div>
         </div>
 
-        {isIndustrialRo && (
+        {(isIndustrialRo || isPackagedWater || isWaterSoftner) && (
           <div className="mt-6 rounded-3xl border border-white/20 bg-white/10 p-6 shadow-xl backdrop-blur-xl md:p-10">
-            <div className="mb-6 flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200/80">
-              <ArrowRight size={14} />
-              Image bento grid
-            </div>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:auto-flow-dense auto-rows-[260px] lg:auto-rows-[320px]">
               {imageGrid.map((src, index) => (
                 <div
@@ -419,7 +441,7 @@ const ServiceDetail = () => {
           </div>
         )}
 
-        {isIndustrialRo && isCometOpen && selectedImage && (
+        {(isIndustrialRo || isPackagedWater || isWaterSoftner) && isCometOpen && selectedImage && (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-6 backdrop-blur-sm"
             onClick={() => {
