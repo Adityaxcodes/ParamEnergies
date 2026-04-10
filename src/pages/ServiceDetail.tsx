@@ -77,6 +77,55 @@ const industrialRoSections = [
   },
 ];
 
+const domesticRoSections = [
+  {
+    title: "Core Purification Technologies",
+    content: [
+      "We offer compact, wall-mount RO systems tailored for households of 4-8 members:",
+      "RO + UV + UF: Reverse Osmosis removes dissolved salts and heavy metals, UV kills bacteria/viruses, and UF eliminates cysts for 99.99% purity.",
+      "RO + Mineralizer: Adds back essential minerals like calcium and magnesium post-purification for healthier, tasty water.",
+      "TDS Controller: Adjustable feature retains optimal TDS levels, preventing overly demineralized water.",
+    ],
+  },
+  {
+    title: "The Purification Process: Step-by-Step",
+    content: [
+      "Pre-Filters (Sediment + Carbon): Traps dirt, rust, chlorine, and odors to protect the RO membrane.",
+      "RO Membrane: High-pressure filtration rejects impurities like arsenic, fluoride, lead, and pesticides.",
+      "Post-Treatment (UV/Mineralizer): Disinfects and enriches water for safe, great-tasting output.",
+      "Storage & Dispensing: 7-12L hygienic tank with auto-shutoff ensures fresh water on demand.",
+      "TDS reduction up to 90-95% for daily drinking and cooking.",
+    ],
+  },
+  {
+    title: "Home Applications",
+    content: [
+      "Urban Apartments: Handles borewell/municipal water with high TDS (>500 ppm).",
+      "Villas & Bungalows: Larger storage for families, ideal for cooking and drinking.",
+      "Kitchens & Offices: Countertop models for direct pure water access.",
+      "Summer Homes: Low-maintenance units with long filter life for seasonal use.",
+    ],
+  },
+  {
+    title: "Why Partner with Param Energy and Filtration?",
+    content: [
+      "25+ Years of Experience: Optimized for low power (40-60W) and minimal water wastage (2:1 ratio).",
+      "Compact & Sleek Design: Wall-mount saves 40% space, fits modern kitchens seamlessly.",
+      "Health-Focused: Mineral retention and zero odor ensure safe water without flat taste.",
+      "Cost Savings: Reduces bottled water expenses; filters last 6-12 months with easy DIY changes.",
+    ],
+  },
+  {
+    title: "Maintenance & Support",
+    content: [
+      "Filter Life Indicators: LED alerts for timely replacement, with annual maintenance kits.",
+      "Expert Technical Guidance: Free installation, app-based monitoring, and 24/7 support for peak performance.",
+      "Param Energy and Filtration: Pure water for your home. 25 years of excellence.",
+    ],
+    span: "md:col-span-2",
+  },
+];
+
 const industrialRoHighlightLines = new Set([
   "Pharmaceuticals & Labs: Meeting strict USP purity standards for lab-grade water.",
   "Food & Beverage: Ensuring consistent ingredient water and consumer safety.",
@@ -233,6 +282,55 @@ const sewageTreatmentSections = [
   },
 ];
 
+const dmPlantSections = [
+  {
+    title: "Core System Technologies",
+    content: [
+      "We offer high-efficiency demineralization technologies tailored to your water quality needs and flow rates:",
+      "Ion Exchange (IX): Two-bed or mixed-bed systems that swap ions to remove hardness, silica, and salts for consistent purity.",
+      "Reverse Osmosis (RO): High-pressure membrane filtration rejecting up to 99% of dissolved solids, ideal for pre-treatment or standalone use.",
+      "Electrodeionization (EDI): Chemical-free continuous process combining ion exchange and electrodialysis for ultra-pure water without regeneration downtime.",
+    ],
+  },
+  {
+    title: "The Treatment Process: Step-by-Step",
+    content: [
+      "Pre-Treatment (Filtration): Multimedia filters and activated carbon remove sediments, chlorine, and organics to protect downstream membranes.",
+      "Primary Demineralization (RO/IX): Reverse osmosis or cation-anion exchange strips out dissolved salts, calcium, magnesium, and heavy metals.",
+      "Polishing (Mixed Bed/EDI): Final ion removal achieves ultrapure standards, eliminating silica and CO2.",
+      "Degassing & pH Adjustment: Removes dissolved gases and stabilizes pH for safe storage and use.",
+      "Target conductivity as low as 0.1 uS/cm for critical applications.",
+    ],
+  },
+  {
+    title: "Industry Applications",
+    content: [
+      "Power Plants: Boiler feedwater to prevent scaling and corrosion.",
+      "Pharmaceuticals & Labs: Ultra-pure water meeting USP/EP standards for injections and rinsing.",
+      "Electronics Manufacturing: Process water for semiconductor rinsing and ultrapure applications.",
+      "Food & Beverage: Softened water for bottling, dairy processing, and ingredient mixing.",
+    ],
+  },
+  {
+    title: "Why Partner with Param Energy and Filtration?",
+    content: [
+      "25+ Years of Experience: Designs optimized for low energy use and extended resin/membrane life.",
+      "Compact & Modular Design: Save up to 40% space with skid-mounted systems for easy expansion.",
+      "Automated Operation: PLC controls with real-time monitoring of conductivity, pH, and flow.",
+      "Cost Savings: Recovers 75-90% of feedwater, reducing waste and freshwater dependency.",
+    ],
+  },
+  {
+    title: "Maintenance & Support",
+    content: [
+      "Automated Regeneration: Resin cleaning and RO membrane flushing with minimal manual intervention.",
+      "Expert Technical Guidance: On-site support for resin health, fouling prevention, and performance optimization.",
+      "Param Energy and Filtration: Pure water, powered by precision. 25 years of excellence.",
+    ],
+    span: "md:col-span-2",
+  },
+];
+
 const ServiceDetail = () => {
   const navigate = useNavigate();
   const { slug } = useParams();
@@ -241,6 +339,8 @@ const ServiceDetail = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const allowedSlugs = new Set([
     "industrial-ro",
+    "domestic-ro",
+    "dm-plants",
     "packaged-water",
     "sewage-treatment",
     "water-softner",
@@ -248,11 +348,21 @@ const ServiceDetail = () => {
 
   const service = useMemo(() => services.find((item) => item.slug === slug), [slug]);
   const isIndustrialRo = service?.slug === "industrial-ro";
+  const isDomesticRo = service?.slug === "domestic-ro";
   const isPackagedWater = service?.slug === "packaged-water";
   const isWaterSoftner = service?.slug === "water-softner";
+  const isDmPlant = service?.slug === "dm-plants";
   const detailSections = useMemo(() => {
+    if (service?.slug === "domestic-ro") {
+      return domesticRoSections;
+    }
+
     if (service?.slug === "packaged-water") {
       return packagedWaterSections;
+    }
+
+    if (service?.slug === "dm-plants") {
+      return dmPlantSections;
     }
 
     if (service?.slug === "water-softner") {
@@ -278,6 +388,21 @@ const ServiceDetail = () => {
       ];
     }
 
+    if (isDomesticRo) {
+      return [
+        domesticImg1,
+        domesticImg2,
+        domesticImg3,
+        domesticImg4,
+        domesticImg5,
+        domesticImg6,
+      ];
+    }
+
+    if (isDmPlant && service?.image) {
+      return [service.image, service.image, service.image, service.image];
+    }
+
     if (isPackagedWater) {
       return [
         packagedImg1,
@@ -298,7 +423,7 @@ const ServiceDetail = () => {
     }
 
     return [service?.image, service?.image, service?.image, service?.image].filter(Boolean);
-  }, [isIndustrialRo, isPackagedWater, isWaterSoftner, service?.image]);
+  }, [isIndustrialRo, isDomesticRo, isDmPlant, isPackagedWater, isWaterSoftner, service?.image]);
 
   if (!service || !allowedSlugs.has(service.slug)) {
     return (

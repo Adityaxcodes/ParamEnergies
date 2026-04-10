@@ -34,20 +34,20 @@ export const services: ServiceItem[] = [
     icon: Home,
     title: "Domestic RO",
     description:
-      "Compact and efficient reverse osmosis systems built for homes, apartments, and small offices. These units remove impurities, contaminants, and harmful substances to deliver safe and clean drinking water. Designed for convenience, they offer easy installation, low maintenance, and reliable performance for everyday household water purification needs.",
+      "Safe drinking water is vital for every home, especially with rising contaminants in municipal supply. With 25+ years of expertise, Param Energy and Filtration engineers advanced Domestic RO Purifiers that deliver pure, mineral-balanced water right from your tap for daily use.",
     image: domesticRo,
     detailDescription:
-      "Compact and efficient reverse osmosis systems built for homes, apartments, and small offices. These units remove impurities, contaminants, and harmful substances to deliver safe and clean drinking water. Designed for convenience, they offer easy installation, low maintenance, and reliable performance for everyday household water purification needs.",
+      "Safe drinking water is vital for every home, especially with rising contaminants in municipal supply. With 25+ years of expertise, Param Energy and Filtration engineers advanced Domestic RO Purifiers that deliver pure, mineral-balanced water right from your tap for daily use.",
   },
   {
     slug: "dm-plants",
     icon: Droplets,
     title: "DM plants",
     description:
-      "High-purity demineralization systems designed to remove dissolved salts and minerals from water for critical industrial applications. Ideal for boiler feed, pharmaceuticals, and manufacturing processes, these plants ensure consistent water quality, improved efficiency, and long-term equipment protection with reliable performance and low operational maintenance requirements.",
+      "Demineralization Plants (DM Plants) by Param Energy and Filtration. Producing ultra-pure water is essential for industries where even trace minerals can compromise operations. With 25+ years of expertise, Param Energy and Filtration engineers advanced Demineralization Plants (DM Plants) that convert raw water into high-purity deionized water for critical applications.",
     image: dmPlant,
     detailDescription:
-      "High-purity demineralization systems designed to remove dissolved salts and minerals from water for critical industrial applications. Ideal for boiler feed, pharmaceuticals, and manufacturing processes, these plants ensure consistent water quality, improved efficiency, and long-term equipment protection with reliable performance and low operational maintenance requirements.",
+      "Demineralization Plants (DM Plants) by Param Energy and Filtration. Producing ultra-pure water is essential for industries where even trace minerals can compromise operations. With 25+ years of expertise, Param Energy and Filtration engineers advanced Demineralization Plants (DM Plants) that convert raw water into high-purity deionized water for critical applications.",
   },
   {
     slug: "packaged-water",
