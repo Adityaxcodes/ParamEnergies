@@ -7,6 +7,13 @@ import ServiceDetailCard from "./ServiceDetailCard";
 import { services } from "@/data/services";
 import { TextAnimate } from "@/registry/magicui/text-animate";
 
+const servicePriority = new Set([
+  "industrial-ro",
+  "packaged-water",
+  "water-softner",
+  "sewage-treatment",
+]);
+
 const Services = () => {
   const [activeService, setActiveService] = useState<(typeof services)[number] | null>(null);
   const navigate = useNavigate();
@@ -65,7 +72,19 @@ const Services = () => {
         </div>
 
         <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-hide">
-          {services.map((service, index) => (
+          {services
+            .slice()
+            .sort((first, second) => {
+              const firstPriority = servicePriority.has(first.slug);
+              const secondPriority = servicePriority.has(second.slug);
+
+              if (firstPriority === secondPriority) {
+                return 0;
+              }
+
+              return firstPriority ? -1 : 1;
+            })
+            .map((service, index) => (
             <div
               key={service.title}
               className={`group relative flex-shrink-0 w-[75vw] sm:w-[60vw] md:w-auto snap-center rounded-2xl overflow-hidden cursor-pointer transition-transform duration-300 ease-out active:scale-[0.97] hover:scale-[1.03] animate-fade-in-up ${
