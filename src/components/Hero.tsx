@@ -1,8 +1,24 @@
 import heroImage from "@/assets/hero-water.jpg";
 import heroVideo from "@/assets/hero section vid.mp4";
 import { TextAnimate } from "@/registry/magicui/text-animate";
+import { useCallback, useState } from "react";
 
-const Hero = () => {
+type HeroProps = {
+  onVideoReady?: () => void;
+};
+
+const Hero = ({ onVideoReady }: HeroProps) => {
+  const [isVideoReady, setIsVideoReady] = useState(false);
+
+  const handleVideoReady = useCallback(() => {
+    if (isVideoReady) {
+      return;
+    }
+
+    setIsVideoReady(true);
+    onVideoReady?.();
+  }, [isVideoReady, onVideoReady]);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background video */}
@@ -13,7 +29,9 @@ const Hero = () => {
           muted
           loop
           playsInline
+          preload="auto"
           poster={heroImage}
+          onPlaying={handleVideoReady}
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
@@ -21,7 +39,11 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10 pt-24">
-        <div className="max-w-2xl animate-fade-in-up">
+        <div
+          className={`max-w-2xl transition-all duration-700 ${
+            isVideoReady ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
           <h1 className="font-heading font-extrabold text-4xl md:text-6xl leading-tight mb-6 text-[#F5F7FA]">
             <TextAnimate as="span" animation="slideUp" by="word" className="font-heading">
               Pure

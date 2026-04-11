@@ -14,6 +14,11 @@ import domesticImg3 from "@/assets/domestic RO/img3.jpeg";
 import domesticImg4 from "@/assets/domestic RO/img4.jpeg";
 import domesticImg5 from "@/assets/domestic RO/img5.jpeg";
 import domesticImg6 from "@/assets/domestic RO/img6.jpeg";
+import domesticOrgImg1 from "@/assets/Domesticorg RO/dro1.jpeg";
+import domesticOrgImg2 from "@/assets/Domesticorg RO/dro2.jpeg";
+import domesticOrgImg3 from "@/assets/Domesticorg RO/dro3.jpeg";
+import domesticOrgImg4 from "@/assets/Domesticorg RO/dro4.jpeg";
+import domesticOrgImg5 from "@/assets/Domesticorg RO/dro5.jpeg";
 import packagedImg1 from "@/assets/packaged water/pw1.jpeg";
 import packagedImg2 from "@/assets/packaged water/pw2.jpeg";
 import packagedImg3 from "@/assets/packaged water/pw3.jpeg";
@@ -352,6 +357,7 @@ const ServiceDetail = () => {
   const isPackagedWater = service?.slug === "packaged-water";
   const isWaterSoftner = service?.slug === "water-softner";
   const isDmPlant = service?.slug === "dm-plants";
+  const shouldShowBentoGrid = isIndustrialRo || isDomesticRo || isPackagedWater || isWaterSoftner;
   const detailSections = useMemo(() => {
     if (service?.slug === "domestic-ro") {
       return domesticRoSections;
@@ -390,12 +396,11 @@ const ServiceDetail = () => {
 
     if (isDomesticRo) {
       return [
-        domesticImg1,
-        domesticImg2,
-        domesticImg3,
-        domesticImg4,
-        domesticImg5,
-        domesticImg6,
+        domesticOrgImg1,
+        domesticOrgImg2,
+        domesticOrgImg3,
+        domesticOrgImg4,
+        domesticOrgImg5,
       ];
     }
 
@@ -531,7 +536,7 @@ const ServiceDetail = () => {
           </div>
         </div>
 
-        {(isIndustrialRo || isPackagedWater || isWaterSoftner) && (
+        {shouldShowBentoGrid && (
           <div className="mt-6 rounded-3xl border border-white/20 bg-white/10 p-6 shadow-xl backdrop-blur-xl md:p-10">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:auto-flow-dense auto-rows-[260px] lg:auto-rows-[320px]">
               {imageGrid.map((src, index) => (
@@ -566,7 +571,7 @@ const ServiceDetail = () => {
           </div>
         )}
 
-        {(isIndustrialRo || isPackagedWater || isWaterSoftner) && isCometOpen && selectedImage && (
+        {shouldShowBentoGrid && isCometOpen && selectedImage && (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-6 backdrop-blur-sm"
             onClick={() => {

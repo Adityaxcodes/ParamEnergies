@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   const location = useLocation();
+  const [isHeroReady, setIsHeroReady] = useState(false);
 
   useEffect(() => {
     if (!location.hash) {
@@ -29,12 +30,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <Services />
-      <About />
-      <Contact />
-      <Footer />
+      {isHeroReady && <Navbar />}
+      <Hero onVideoReady={() => setIsHeroReady(true)} />
+      {isHeroReady && <Services />}
+      {isHeroReady && <About />}
+      {isHeroReady && <Contact />}
+      {isHeroReady && <Footer />}
     </div>
   );
 };
