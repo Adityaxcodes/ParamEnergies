@@ -9,7 +9,8 @@ import {
 } from "framer-motion";
 
 import React, { useRef, useState } from "react";
-import logo from "@/assets/logo.jpeg";
+import logoWebp from "@/assets/logo.webp";
+import logoJpeg from "@/assets/logo.jpeg";
 
 
 interface NavbarProps {
@@ -238,11 +239,15 @@ export const NavbarLogo = () => {
       href="#home"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-white group-data-[visible=true]:text-black"
     >
-      <img
-        src={logo}
-        alt="Param Energy & Filters Logo"
-        className="h-8 w-auto rounded-md object-contain"
-      />
+      <picture>
+        <source srcSet={logoWebp} type="image/webp" />
+        <img
+          src={logoJpeg}
+          alt="Param Energy & Filters Logo"
+          decoding="async"
+          className="h-8 w-auto rounded-md object-contain"
+        />
+      </picture>
       <span className="font-heading text-sm font-semibold leading-tight text-white group-data-[visible=true]:text-zinc-900">
         Param Energy
         <span className="block text-[0.7rem] font-normal text-white/70 group-data-[visible=true]:text-zinc-600">

@@ -42,18 +42,18 @@ const Footer = () => {
             <TextAnimate as="h4" animation="slideUp" by="word" className="font-heading font-semibold mb-4">
               Location
             </TextAnimate>
-            <div className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 p-4">
-              <a
-                href="https://maps.app.goo.gl/KXCzWrWQqt5Hso1G9"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity"
-              >
+            <a
+              href="https://maps.app.goo.gl/KXCzWrWQqt5Hso1G9"
+              target="_blank"
+              rel="noreferrer"
+              className="block rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 p-4 transition-all duration-300 hover:bg-white/20 hover:-translate-y-0.5"
+            >
+              <div className="inline-flex items-center gap-2 text-sm opacity-80">
                 <span className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
                   <Navigation size={16} />
                 </span>
                 Open in Maps
-              </a>
+              </div>
               <TextAnimate
                 as="p"
                 animation="slideUp"
@@ -62,7 +62,7 @@ const Footer = () => {
               >
                 Krishna Market ,shop no. 9,Chandpura road, Rani Sati Rd, Rajasthan 332001
               </TextAnimate>
-            </div>
+            </a>
           </div>
           <div>
             <TextAnimate as="h4" animation="slideUp" by="word" className="font-heading font-semibold mb-4">

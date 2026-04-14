@@ -57,7 +57,7 @@ const Contact = () => {
 
   const contactItems = [
     { icon: Phone, title: "Phone", value: "9829377055" },
-    { icon: Mail, title: "Email", value: "paramEnergies@gmail.com" },
+    { icon: Mail, title: "Email", value: "paramenergyfilters@gmail.com" },
     {
       icon: MapPin,
       title: "Address",

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import servicesBg from "../assets/services bg.jpg";
+import servicesBgWebp from "../assets/services bg.webp";
 import ServiceDetailCard from "./ServiceDetailCard";
 import { services } from "@/data/services";
 import { TextAnimate } from "@/registry/magicui/text-animate";
@@ -40,7 +40,7 @@ const Services = () => {
     >
       <div
         className="absolute inset-0 bg-cover bg-center blur-sm scale-105"
-        style={{ backgroundImage: `url(${servicesBg})` }}
+        style={{ backgroundImage: `url(${servicesBgWebp})` }}
       />
       <div className="absolute top-20 left-10 w-72 h-72 bg-[hsl(var(--primary))]/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-80 h-80 bg-[hsl(240,100%,59%)]/20 rounded-full blur-3xl pointer-events-none" />
@@ -98,6 +98,7 @@ const Services = () => {
                   src={service.image}
                   alt={service.title}
                   loading="lazy"
+                  decoding="async"
                   width={640}
                   height={896}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

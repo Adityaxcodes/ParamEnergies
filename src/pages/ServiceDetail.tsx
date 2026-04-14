@@ -8,26 +8,46 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { services } from "@/data/services";
 import CometCardDemo from "@/components/comet-card-demo";
-import domesticImg1 from "@/assets/domestic RO/img1.jpeg";
-import domesticImg2 from "@/assets/domestic RO/img2.jpeg";
-import domesticImg3 from "@/assets/domestic RO/img3.jpeg";
-import domesticImg4 from "@/assets/domestic RO/img4.jpeg";
-import domesticImg5 from "@/assets/domestic RO/img5.jpeg";
-import domesticImg6 from "@/assets/domestic RO/img6.jpeg";
-import domesticOrgImg1 from "@/assets/Domesticorg RO/dro1.jpeg";
-import domesticOrgImg2 from "@/assets/Domesticorg RO/dro2.jpeg";
-import domesticOrgImg3 from "@/assets/Domesticorg RO/dro3.jpeg";
-import domesticOrgImg4 from "@/assets/Domesticorg RO/dro4.jpeg";
-import domesticOrgImg5 from "@/assets/Domesticorg RO/dro5.jpeg";
-import packagedImg1 from "@/assets/packaged water/pw1.jpeg";
-import packagedImg2 from "@/assets/packaged water/pw2.jpeg";
-import packagedImg3 from "@/assets/packaged water/pw3.jpeg";
-import packagedImg4 from "@/assets/packaged water/pw4.jpeg";
-import packagedImg5 from "@/assets/packaged water/pw5.jpeg";
-import packagedImg6 from "@/assets/packaged water/pw6.jpeg";
-import softnerImg1 from "@/assets/water softenning/ws1.jpeg";
-import softnerImg2 from "@/assets/water softenning/ws2.jpeg";
-import softnerImg3 from "@/assets/water softenning/ws3.jpeg";
+import domesticImg1Webp from "@/assets/domestic RO/img1.webp";
+import domesticImg1Jpeg from "@/assets/domestic RO/img1.jpeg";
+import domesticImg2Webp from "@/assets/domestic RO/img2.webp";
+import domesticImg2Jpeg from "@/assets/domestic RO/img2.jpeg";
+import domesticImg3Webp from "@/assets/domestic RO/img3.webp";
+import domesticImg3Jpeg from "@/assets/domestic RO/img3.jpeg";
+import domesticImg4Webp from "@/assets/domestic RO/img4.webp";
+import domesticImg4Jpeg from "@/assets/domestic RO/img4.jpeg";
+import domesticImg5Webp from "@/assets/domestic RO/img5.webp";
+import domesticImg5Jpeg from "@/assets/domestic RO/img5.jpeg";
+import domesticImg6Webp from "@/assets/domestic RO/img6.webp";
+import domesticImg6Jpeg from "@/assets/domestic RO/img6.jpeg";
+import domesticOrgImg1Webp from "@/assets/Domesticorg RO/dro1.webp";
+import domesticOrgImg1Jpeg from "@/assets/Domesticorg RO/dro1.jpeg";
+import domesticOrgImg2Webp from "@/assets/Domesticorg RO/dro2.webp";
+import domesticOrgImg2Jpeg from "@/assets/Domesticorg RO/dro2.jpeg";
+import domesticOrgImg3Webp from "@/assets/Domesticorg RO/dro3.webp";
+import domesticOrgImg3Jpeg from "@/assets/Domesticorg RO/dro3.jpeg";
+import domesticOrgImg4Webp from "@/assets/Domesticorg RO/dro4.webp";
+import domesticOrgImg4Jpeg from "@/assets/Domesticorg RO/dro4.jpeg";
+import domesticOrgImg5Webp from "@/assets/Domesticorg RO/dro5.webp";
+import domesticOrgImg5Jpeg from "@/assets/Domesticorg RO/dro5.jpeg";
+import packagedImg1Webp from "@/assets/packaged water/pw1.webp";
+import packagedImg1Jpeg from "@/assets/packaged water/pw1.jpeg";
+import packagedImg2Webp from "@/assets/packaged water/pw2.webp";
+import packagedImg2Jpeg from "@/assets/packaged water/pw2.jpeg";
+import packagedImg3Webp from "@/assets/packaged water/pw3.webp";
+import packagedImg3Jpeg from "@/assets/packaged water/pw3.jpeg";
+import packagedImg4Webp from "@/assets/packaged water/pw4.webp";
+import packagedImg4Jpeg from "@/assets/packaged water/pw4.jpeg";
+import packagedImg5Webp from "@/assets/packaged water/pw5.webp";
+import packagedImg5Jpeg from "@/assets/packaged water/pw5.jpeg";
+import packagedImg6Webp from "@/assets/packaged water/pw6.webp";
+import packagedImg6Jpeg from "@/assets/packaged water/pw6.jpeg";
+import softnerImg1Webp from "@/assets/water softenning/ws1.webp";
+import softnerImg1Jpeg from "@/assets/water softenning/ws1.jpeg";
+import softnerImg2Webp from "@/assets/water softenning/ws2.webp";
+import softnerImg2Jpeg from "@/assets/water softenning/ws2.jpeg";
+import softnerImg3Webp from "@/assets/water softenning/ws3.webp";
+import softnerImg3Jpeg from "@/assets/water softenning/ws3.jpeg";
 
 
 const industrialRoSections = [
@@ -385,49 +405,56 @@ const ServiceDetail = () => {
   const imageGrid = useMemo(() => {
     if (isIndustrialRo) {
       return [
-        domesticImg1,
-        domesticImg2,
-        domesticImg3,
-        domesticImg4,
-        domesticImg5,
-        domesticImg6,
+        { webp: domesticImg1Webp, fallback: domesticImg1Jpeg },
+        { webp: domesticImg2Webp, fallback: domesticImg2Jpeg },
+        { webp: domesticImg3Webp, fallback: domesticImg3Jpeg },
+        { webp: domesticImg4Webp, fallback: domesticImg4Jpeg },
+        { webp: domesticImg5Webp, fallback: domesticImg5Jpeg },
+        { webp: domesticImg6Webp, fallback: domesticImg6Jpeg },
       ];
     }
 
     if (isDomesticRo) {
       return [
-        domesticOrgImg1,
-        domesticOrgImg2,
-        domesticOrgImg3,
-        domesticOrgImg4,
-        domesticOrgImg5,
+        { webp: domesticOrgImg1Webp, fallback: domesticOrgImg1Jpeg },
+        { webp: domesticOrgImg2Webp, fallback: domesticOrgImg2Jpeg },
+        { webp: domesticOrgImg3Webp, fallback: domesticOrgImg3Jpeg },
+        { webp: domesticOrgImg4Webp, fallback: domesticOrgImg4Jpeg },
+        { webp: domesticOrgImg5Webp, fallback: domesticOrgImg5Jpeg },
       ];
     }
 
     if (isDmPlant && service?.image) {
-      return [service.image, service.image, service.image, service.image];
+      return [
+        { webp: service.image, fallback: service.image },
+        { webp: service.image, fallback: service.image },
+        { webp: service.image, fallback: service.image },
+        { webp: service.image, fallback: service.image },
+      ];
     }
 
     if (isPackagedWater) {
       return [
-        packagedImg1,
-        packagedImg2,
-        packagedImg3,
-        packagedImg4,
-        packagedImg5,
-        packagedImg6,
+        { webp: packagedImg1Webp, fallback: packagedImg1Jpeg },
+        { webp: packagedImg2Webp, fallback: packagedImg2Jpeg },
+        { webp: packagedImg3Webp, fallback: packagedImg3Jpeg },
+        { webp: packagedImg4Webp, fallback: packagedImg4Jpeg },
+        { webp: packagedImg5Webp, fallback: packagedImg5Jpeg },
+        { webp: packagedImg6Webp, fallback: packagedImg6Jpeg },
       ];
     }
 
     if (isWaterSoftner) {
       return [
-        softnerImg1,
-        softnerImg2,
-        softnerImg3,
+        { webp: softnerImg1Webp, fallback: softnerImg1Jpeg },
+        { webp: softnerImg2Webp, fallback: softnerImg2Jpeg },
+        { webp: softnerImg3Webp, fallback: softnerImg3Jpeg },
       ];
     }
 
-    return [service?.image, service?.image, service?.image, service?.image].filter(Boolean);
+    return [service?.image, service?.image, service?.image, service?.image]
+      .filter(Boolean)
+      .map((img) => ({ webp: img as string, fallback: img as string }));
   }, [isIndustrialRo, isDomesticRo, isDmPlant, isPackagedWater, isWaterSoftner, service?.image]);
 
   if (!service || !allowedSlugs.has(service.slug)) {
@@ -492,6 +519,8 @@ const ServiceDetail = () => {
               <img
                 src={service.image}
                 alt={service.title}
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 h-full w-full rounded-2xl object-cover"
               />
               <div className="absolute inset-0 rounded-2xl bg-black/20" />
@@ -539,11 +568,11 @@ const ServiceDetail = () => {
         {shouldShowBentoGrid && (
           <div className="mt-6 rounded-3xl border border-white/20 bg-white/10 p-6 shadow-xl backdrop-blur-xl md:p-10">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:auto-flow-dense auto-rows-[260px] lg:auto-rows-[320px]">
-              {imageGrid.map((src, index) => (
+              {imageGrid.map((image, index) => (
                 <div
                   key={`bento-image-${index}`}
                   onClick={() => {
-                    setSelectedImage(src);
+                    setSelectedImage(image.webp);
                     setSelectedIndex(index);
                     setIsCometOpen(true);
                   }}
@@ -558,11 +587,16 @@ const ServiceDetail = () => {
                     ][index % 6]
                   } group relative overflow-hidden rounded-2xl border border-white/20 bg-white/10 shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-cyan-400/30 cursor-pointer`}
                 >
-                  <img
-                    src={src}
-                    alt={`${service.title} system ${index + 1}`}
-                    className="absolute inset-0 h-full w-full rounded-2xl object-cover"
-                  />
+                  <picture>
+                    <source srcSet={image.webp} type="image/webp" />
+                    <img
+                      src={image.fallback}
+                      alt={`${service.title} system ${index + 1}`}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full rounded-2xl object-cover"
+                    />
+                  </picture>
                   <div className="absolute inset-0 rounded-2xl bg-black/20" />
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-black/40 via-transparent to-cyan-500/20" />
                 </div>

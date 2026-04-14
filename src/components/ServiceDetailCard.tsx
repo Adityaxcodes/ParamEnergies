@@ -82,6 +82,8 @@ const ServiceDetailCard = ({
       <img
         src={image}
         alt={title}
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-70 transition-opacity duration-300"
       />
 

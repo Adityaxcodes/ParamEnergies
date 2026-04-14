@@ -1,4 +1,5 @@
-import heroImage from "@/assets/hero-water.jpg";
+import heroImageWebp from "@/assets/hero-water.webp";
+import heroImageJpg from "@/assets/hero-water.jpg";
 import heroVideo from "@/assets/hero section vid.mp4";
 import { TextAnimate } from "@/registry/magicui/text-animate";
 import { useCallback, useState } from "react";
@@ -30,7 +31,7 @@ const Hero = ({ onVideoReady }: HeroProps) => {
           loop
           playsInline
           preload="auto"
-          poster={heroImage}
+          poster={heroImageWebp}
           onPlaying={handleVideoReady}
         >
           <source src={heroVideo} type="video/mp4" />
