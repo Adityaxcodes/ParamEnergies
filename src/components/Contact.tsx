@@ -15,15 +15,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER as string | undefined;
-    if (!whatsappNumber) {
-      toast({
-        title: "WhatsApp number not configured",
-        description: "Set VITE_WHATSAPP_NUMBER in your .env file to enable WhatsApp messaging.",
-        variant: "destructive",
-      });
-      return;
-    }
+    const whatsappNumber = "9829377055";
 
     try {
       setIsSubmitting(true);
