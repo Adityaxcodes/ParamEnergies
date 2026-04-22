@@ -1,5 +1,4 @@
-import aboutPosterWebp from "@/assets/hero-water.webp";
-import aboutPosterJpg from "@/assets/hero-water.jpg";
+import aboutPosterImage from "@/assets/mobileHerosection.png";
 import aboutVideo from "@/assets/About us bg.mp4";
 import { TextAnimate } from "@/registry/magicui/text-animate";
 import { NumberTicker } from "@/registry/magicui/number-ticker";
@@ -28,7 +27,7 @@ const About = () => {
           muted
           loop
           playsInline
-          poster={aboutPosterWebp}
+          poster={aboutPosterImage}
         >
           <source src={aboutVideo} type="video/mp4" />
         </video>

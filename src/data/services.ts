@@ -1,6 +1,6 @@
 import { Droplets, Factory, Home, ShieldCheck, Sun, Wrench } from "lucide-react";
 
-import heroWaterWebp from "../assets/hero-water.webp";
+import mobileHeroSection from "../assets/mobileHerosection.png";
 import dmPlantWebp from "../assets/services/DM plant.webp";
 import dmPlantPng from "../assets/services/DM plant.png";
 import domesticRoWebp from "../assets/services/Domestic RO.webp";
@@ -102,7 +102,7 @@ export const services: ServiceItem[] = [
     title: "Maintainance & AMC",
     description:
       "Comprehensive maintenance and annual service contracts designed to ensure optimal performance of water treatment systems. Regular inspections, timely servicing, and expert support help prevent breakdowns and extend equipment lifespan. Our AMC services provide peace of mind with reliable operation, reduced downtime, and consistent system efficiency.",
-    image: heroWaterWebp,
+    image: mobileHeroSection,
     detailDescription:
       "Comprehensive maintenance and annual service contracts designed to ensure optimal performance of water treatment systems. Regular inspections, timely servicing, and expert support help prevent breakdowns and extend equipment lifespan. Our AMC services provide peace of mind with reliable operation, reduced downtime, and consistent system efficiency.",
   },

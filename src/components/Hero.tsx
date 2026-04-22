@@ -1,15 +1,27 @@
-import heroImageWebp from "@/assets/hero-water.webp";
-import heroImageJpg from "@/assets/hero-water.jpg";
+import heroBackgroundImage from "@/assets/mobileHerosection.png";
 import heroVideo from "@/assets/hero section vid.mp4";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { TextAnimate } from "@/registry/magicui/text-animate";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 type HeroProps = {
   onVideoReady?: () => void;
 };
 
 const Hero = ({ onVideoReady }: HeroProps) => {
+  const isMobile = useIsMobile();
   const [isVideoReady, setIsVideoReady] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      onVideoReady?.();
+    }
+  }, [isMobile, onVideoReady]);
 
   const handleVideoReady = useCallback(() => {
     if (isVideoReady) {
@@ -22,27 +34,37 @@ const Hero = ({ onVideoReady }: HeroProps) => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background video */}
       <div className="absolute inset-0">
-        <video
+        <img
+          src={heroBackgroundImage}
+          alt="Water treatment hero background"
           className="w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster={heroImageWebp}
-          onPlaying={handleVideoReady}
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
+          loading="eager"
+          fetchPriority="high"
+        />
+        {hasMounted && !isMobile && (
+          <video
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+              isVideoReady ? "opacity-100" : "opacity-0"
+            }`}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={heroBackgroundImage}
+            onPlaying={handleVideoReady}
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+        )}
         <div className="absolute inset-0 bg-[rgba(10,37,64,0.35)]" aria-hidden="true" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10 pt-24">
         <div
           className={`max-w-2xl transition-all duration-700 ${
-            isVideoReady ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            isMobile || isVideoReady ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
           <h1 className="font-heading font-extrabold text-4xl md:text-6xl leading-tight mb-6 text-[#F5F7FA]">
